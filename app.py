@@ -107,7 +107,7 @@ def start_end(start, end):
     start_date = dt.datetime.strptime(start, "%Y-%m-%d").date()
     end_date = dt.datetime.strptime(end, "%Y-%m-%d").date()
     session = Session(engine)
-    results = session.query(*stats).filter(measurement.date >= start_date).filter(measurement.date <= start_date).all()
+    results = session.query(*stats).filter(measurement.date >= start_date).filter(measurement.date <= end_date).all()
     session.close()
 
     results_dict = {}
